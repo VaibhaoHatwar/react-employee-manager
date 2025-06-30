@@ -1,8 +1,16 @@
 const employees = [
   {
     id: 1,
+    firstName: "Amit",
+    lastName: "Verma",
     email: "employee1@example.com",
     password: "123",
+    taskCount: {
+      active: 1,
+      newTask: 1,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         title: "Fix header UI",
@@ -38,8 +46,16 @@ const employees = [
   },
   {
     id: 2,
+    firstName: "Rohit",
+    lastName: "Patil",
     email: "employee2@example.com",
     password: "123",
+    taskCount: {
+      active: 2,
+      newTask: 2,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         title: "Write unit tests",
@@ -85,8 +101,16 @@ const employees = [
   },
   {
     id: 3,
+    firstName: "Sneha",
+    lastName: "Kulkarni",
     email: "employee3@example.com",
     password: "123",
+    taskCount: {
+      active: 1,
+      newTask: 0,
+      completed: 2,
+      failed: 0
+    },
     tasks: [
       {
         title: "Design error pages",
@@ -122,8 +146,16 @@ const employees = [
   },
   {
     id: 4,
+    firstName: "Priya",
+    lastName: "Sharma",
     email: "employee4@example.com",
     password: "123",
+    taskCount: {
+      active: 2,
+      newTask: 2,
+      completed: 1,
+      failed: 1
+    },
     tasks: [
       {
         title: "Create login animation",
@@ -169,8 +201,16 @@ const employees = [
   },
   {
     id: 5,
+    firstName: "Karan",
+    lastName: "Mehta",
     email: "employee5@example.com",
     password: "123",
+    taskCount: {
+      active: 1,
+      newTask: 1,
+      completed: 2,
+      failed: 0
+    },
     tasks: [
       {
         title: "Set up CI pipeline",
@@ -209,8 +249,11 @@ const employees = [
 const admin = [
   {
     id: 1,
+    firstName: "Anjali",
+    lastName: "Deshmukh",
     email: "admin@example.com",
-    password: "123"
+    password: "123",
+    role: "admin"
   }
 ];
 
