@@ -1,53 +1,30 @@
-const TaskList = () => {
+import AcceptTask from "./AcceptTask";
+import CompleteTask from "./CompleteTask";
+import FailedTask from "./FailedTask";
+import NewTask from "./NewTask";
+
+const TaskList = ({ data }) => {
   return (
     <div
       id="task-list"
       className="h-[55%] overflow-x-auto flex items-center py-5 justify-start gap-5 flex-nowrap mt-10 w-full"
     >
-      <div className="flex-shrink-0 h-full p-5 w-[300px] bg-red-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 feb 2025</h4>
-        </div>
-        <h2 className="mt-5 text-2xl semibold">Make a youtube video</h2>
-        <p className="text-sm mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis,
-          enim mollitia rem voluptate vitae voluptates?
-        </p>
-      </div>
-      <div className="flex-shrink-0 h-full p-5 w-[300px] bg-green-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 feb 2025</h4>
-        </div>
-        <h2 className="mt-5 text-2xl semibold">Make a youtube video</h2>
-        <p className="text-sm mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis,
-          enim mollitia rem voluptate vitae voluptates?
-        </p>
-      </div>
-      <div className="flex-shrink-0 h-full p-5 w-[300px] bg-blue-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 feb 2025</h4>
-        </div>
-        <h2 className="mt-5 text-2xl semibold">Make a youtube video</h2>
-        <p className="text-sm mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis,
-          enim mollitia rem voluptate vitae voluptates?
-        </p>
-      </div>
-      <div className="flex-shrink-0 h-full p-5 w-[300px] bg-yellow-400 rounded-xl">
-        <div className="flex justify-between items-center">
-          <h3 className="bg-red-600 text-sm px-3 py-1 rounded">High</h3>
-          <h4 className="text-sm">20 feb 2025</h4>
-        </div>
-        <h2 className="mt-5 text-2xl semibold">Make a youtube video</h2>
-        <p className="text-sm mt-2">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis,
-          enim mollitia rem voluptate vitae voluptates?
-        </p>
-      </div>
+      {
+        data.tasks.map((elem, idx)=>{
+          if(elem.active) {
+          return <AcceptTask key={idx} data={elem} />
+          }
+          if(elem.newTask) {
+          return <NewTask key={idx} data={elem} />
+          }
+          if(elem.completed) {
+          return <CompleteTask key={idx} data={elem} />
+          }
+          if(elem.failed) {
+          return <FailedTask key={idx} data={elem} />
+          }  
+        })
+      }
     </div>
   );
 };
