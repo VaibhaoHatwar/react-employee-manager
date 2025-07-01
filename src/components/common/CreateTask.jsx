@@ -7,11 +7,9 @@ const CreateTask = () => {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
 
-  const [task, setTask] = useState({});
-
   const submitHandler = (e) => {
     e.preventDefault();
-    setTask({
+    const task = {
       title,
       date,
       category,
@@ -19,20 +17,27 @@ const CreateTask = () => {
       active: false,
       newTask: true,
       completed: false,
-      failed: true,
-    });
-    console.log('createtask task',task);
+      failed: false,
+    };
+
     const data = JSON.parse(localStorage.getItem("employees"));
 
     data.forEach((employee) => {
-      console.log(employee)
-    })
+      if (assignTo === employee.firstName) {
+        employee.tasks.push(task);
+        employee.taskCount.newTask = employee.taskCount.newTask + 1;
+      }
+    });
 
-    // setTitle("");
-    // setDate("");
-    // setAssignTo("");
-    // setCategory("");
-    // setDescription("");
+    // Save updated data back to localStorage
+    localStorage.setItem("employees", JSON.stringify(data));
+
+    // Clear form fields
+    setTitle("");
+    setDate("");
+    setAssignTo("");
+    setCategory("");
+    setDescription("");
   };
 
   return (
